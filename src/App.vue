@@ -1,16 +1,44 @@
 <template>
 <div class="container">
   <Header title="Task Tracker" />
+  <Tasks :tasks="tasks"/>
 </div>
 
 </template>
 
 <script>
 import Header from './components/Header'
+import Tasks from './components/Tasks'
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+    Tasks
+  }, 
+  data(){
+    return {
+      tasks: []
+    }
+  }, 
+  created(){
+    // const axios = require('axios');
+
+    // axios.get('https://jsonplaceholder.typicode.com/todos')
+    // .then(response => {
+    //   const data = response.data;
+    //    this.tasks = data
+    //    console.log(this.tasks)
+    //    this.tasks.forEach(task => console.log(task.id))
+    // })
+
+    this.tasks = [
+      {
+        id: 1,
+        text: 'doctors appointment', 
+        day: "March 1st at 230",
+        reminder: true
+      }
+    ]
   }
 }
 </script>
